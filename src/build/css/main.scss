@@ -1,5 +1,94 @@
-$bg: blue;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'reset.scss';
+
+$main_color: #ffddda;
+$menu: rgb(120, 42, 40);
+$st_height: 10vh;
 
 body {
-    background-color: $bg;
+    background-color: $main_color;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header--site{
+    .menu {
+        background-color: $menu;
+        height: $st_height; 
+        position: relative;
+    
+        .menu__list {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 10vh;
+            width: 100%;
+            background-color: darken($menu, 10%);
+            transform: scale(1, 0);
+            transform-origin: top;
+            transition: transform .5s ease-in-out;
+    
+            .menu__option {
+                height: 10vh;
+                color: white;
+
+                .menu__link {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .menu__option:hover { background-color: darken($menu, 5%) }
+        }
+
+        .menu__list--active {
+            transform: scale(1, 1);
+        }
+
+        .menu__dropdown {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: $st_height;
+
+            .menu__burger {
+                position: absolute;
+                top: 5vh;
+                right: 10vh;
+                display: block;
+                background-color: #fff;
+                width: 60px;
+                height: 2px;
+                transition: all .5s ease-in-out;
+            }
+
+            .menu__burger::before,
+            .menu__burger::after {
+                content: '';
+                position: absolute;
+                width: 60px;
+                right: 0;
+                height: 2px;
+                background: #fff;
+                transition: all .5s ease-in-out;
+            }
+
+            .menu__burger::before { top: -2vh }
+            .menu__burger::after { top: 2vh }
+        }
+
+        .menu__dropdown.open .menu__burger{ background-color: rgba(0,0,0,0) }
+        .menu__dropdown.open .menu__burger::before { 
+            top: 0;
+            transform: rotate(45deg);
+        }
+        .menu__dropdown.open .menu__burger::after { 
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
+        .menu__dropdown:hover { cursor: pointer }
+    }
 }
