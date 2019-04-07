@@ -26,6 +26,7 @@ body {
             transform: scale(1, 0);
             transform-origin: top;
             transition: transform .5s ease-in-out;
+            z-index: 1;
     
             .menu__option {
                 height: 10vh;
@@ -56,7 +57,7 @@ body {
             .menu__burger {
                 position: absolute;
                 top: 5vh;
-                right: 10vh;
+                right: 5vh;
                 display: block;
                 background-color: #fff;
                 width: 60px;
@@ -90,5 +91,20 @@ body {
         }
 
         .menu__dropdown:hover { cursor: pointer }
+    }
+
+    .banner {
+        display: flex;
+        justify-content: center;
+        padding-top: 20vh; 
+        clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
+        /*
+            This pattern is downloaded from www.subtlepatterns.com 
+            If you need more, that's where to get'em.
+        */
+        background-image: url(../img/banner.png); 
+        height: 90vh;
+        color: #fff;
+        font-size: 2rem;
     }
 }
