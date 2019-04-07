@@ -1,6 +1,7 @@
 import '../css/main.scss';
-
 import 'babel-polyfill';
+
+import PdfFile from '../img/cv.pdf';
 import { resolve } from 'path';
 import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 
@@ -19,7 +20,8 @@ dropdownBtn.addEventListener('click', () => {
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const banner = document.getElementById('siteBanner');
-const words = 'Witaj w moim portfolio!';
+const words = "Witaj w moim portfolio!";
+const name = 'Nazywam się Dawid Kiełbik i jestem początkującym Front-End Developerem. Aktualnie szukam stażu, który pomógłby mi się dalej rozwijać w świecie Front-End`u.'
 
 async function typeWritter() {
     for (let ch of words) {

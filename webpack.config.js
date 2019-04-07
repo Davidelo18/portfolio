@@ -21,11 +21,11 @@ module.exports = {
                 test: /\.html$/,
                 use: [{
                     loader: "html-loader",
-                    options: { minimize: true }
+                    options: { minimize: false }
                 }]
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(pdf|png|svg|jpg|gif)$/,
                 use: [
                     'file-loader'
                 ]

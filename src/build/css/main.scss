@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import 'reset.scss';
 
-$main_color: #ffddda;
+$main_color: #fcf6f6;
 $menu: rgb(120, 42, 40);
 $st_height: 10vh;
 
@@ -106,5 +106,31 @@ body {
         height: 90vh;
         color: #fff;
         font-size: 2rem;
+    }
+}
+
+.main {
+    .article {
+        width: 90%;
+        margin: 0 auto 15vh auto;
+        font-size: 1.2rem;
+    }
+
+    .article__header {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
+    }
+
+    .article--about{
+        position: relative;
+
+        .article__header--about {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
+            position: absolute;
+            top: -15vh;
+        }
     }
 }
