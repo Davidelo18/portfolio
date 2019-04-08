@@ -3,6 +3,7 @@
 
 $main_color: #fcf6f6;
 $menu: rgb(120, 42, 40);
+$grey_cl: rgb(53, 53, 53);
 $st_height: 10vh;
 
 body {
@@ -12,14 +13,17 @@ body {
 
 .header--site{
 
-    .menu {
+    .fixed {
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 2;
+    }
+
+    .menu {
         width: 100%;
         height: $st_height;
         background-color: $menu;
-        z-index: 2;
 
         .menu__container {
             position: relative;
@@ -105,6 +109,7 @@ body {
     .banner {
         display: flex;
         justify-content: center;
+        text-align: center;
         padding-top: 20vh; 
         clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
         /*
@@ -141,5 +146,59 @@ body {
             position: absolute;
             top: -15vh;
         }
+
+        .article__container--links {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            margin: 30px 0 10px 0;
+
+            .article__link {
+                position: relative;
+                width: 80%;
+                margin-bottom: 5vh;
+                padding: 10px;
+                background-color: $grey_cl;
+                color: #fff;
+            }
+
+            .article__link--email {
+                margin: 0;
+                background-color: $menu;
+                border-radius: 6px;
+            }
+
+            .article__arrow { text-align: center }
+
+            .article__arrow::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                top: calc(50% - 5px);
+                right: 0;
+                border-right: 4px solid #fff;
+                border-bottom: 4px solid #fff;
+                transform: rotate(-45deg);
+            }
+
+            .article__arrow--right::after { animation: 2s arrowAnimationRight infinite ease-in-out }
+            .article__arrow--left::after { animation: 2s arrowAnimationLeft infinite ease-in-out }
+
+            @keyframes arrowAnimationRight {
+                0%, 100% { right: 8% }
+
+                50% { right: 18% }
+            }
+
+            @keyframes arrowAnimationLeft {
+                0%, 100% { left: 8% }
+
+                50% { left: 18% }
+            }
+        }
+
+
     }
 }

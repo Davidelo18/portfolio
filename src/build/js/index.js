@@ -18,7 +18,7 @@ dropdownBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY >= navTop) {
+    if (window.scrollY > navTop) {
         navigation.classList.add('fixed');
     } else {
         navigation.classList.remove('fixed');
