@@ -233,7 +233,8 @@ body {
       -webkit-backface-visibility: hidden;
               backface-visibility: hidden;
       border-radius: 10px;
-      box-shadow: 17px 11px 10px -1px rgba(0, 0, 0, 0.75); }
+      box-shadow: 17px 11px 10px -1px rgba(0, 0, 0, 0.75);
+      z-index: 2; }
     .main .article__container--technology .article__technology .article__card--front {
       background-color: #c5b3b3; }
     .main .article__container--technology .article__technology .article__card--back {
@@ -243,5 +244,6 @@ body {
 
 .main .article__technology--fliping {
   -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
+          transform: rotateY(180deg);
+  z-index: 2; }
 

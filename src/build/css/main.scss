@@ -236,6 +236,8 @@ body {
     grid-template-columns: 1fr;
     grid-gap: 5vh;
     margin-top: 30px;
+    @media (min-width: 720px) { grid-template-columns: repeat(2, 1fr) }
+    @media (min-width: 1280px) { grid-template-columns: repeat(3, 1fr) }
 
     .article__technology {
       width: 100%;
@@ -257,6 +259,7 @@ body {
         backface-visibility: hidden;
         border-radius: 10px;
         box-shadow: 17px 11px 10px -1px rgba(0,0,0,0.75);
+        z-index: 2;
       }
 
       .article__card--front {
@@ -272,5 +275,6 @@ body {
 
   .article__technology--fliping {
     transform: rotateY(180deg);
+    z-index: 2;
   }
 }
