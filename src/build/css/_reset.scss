@@ -11,11 +11,12 @@
     ul, ol { list-style-type: none }
     button { border: none }
 
-    .fab { 
+    .fab, .fas { 
         font-size: 35vh;
         @media (min-width: 720px) {
             font-size: 30vh;
         }
     }
     figcaption { font-size: 1.3rem }
+    h3 { text-align: center }
 }
