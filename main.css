@@ -10,10 +10,14 @@
     list-style-type: none; }
   * button {
     border: none; }
+  * .fab {
+    font-size: 35vh; }
+  * figcaption {
+    font-size: 1.3rem; }
 
 body {
   background-color: #fcf6f6;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: "Open Sans", sans-serif; }
 
 .header--site .fixed {
   position: fixed;
@@ -38,9 +42,9 @@ body {
               transform: scale(1, 0);
       -webkit-transform-origin: top;
               transform-origin: top;
-      transition: -webkit-transform .5s ease-in-out;
-      transition: transform .5s ease-in-out;
-      transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+      transition: -webkit-transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
       z-index: 1; }
       .header--site .menu .menu__container .menu__list .menu__option {
         height: 10vh;
@@ -69,16 +73,16 @@ body {
         background-color: #fff;
         width: 60px;
         height: 2px;
-        transition: all .5s ease-in-out; }
+        transition: all 0.5s ease-in-out; }
       .header--site .menu .menu__container .menu__dropdown .menu__burger::before,
       .header--site .menu .menu__container .menu__dropdown .menu__burger::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 60px;
         right: 0;
         height: 2px;
         background: #fff;
-        transition: all .5s ease-in-out; }
+        transition: all 0.5s ease-in-out; }
       .header--site .menu .menu__container .menu__dropdown .menu__burger::before {
         top: -2vh; }
       .header--site .menu .menu__container .menu__dropdown .menu__burger::after {
@@ -145,12 +149,12 @@ body {
       color: #fff; }
     .main .article--about .article__container--links .article__link--email {
       margin: 0;
-      background-color: #782a28;
+      background-color: #521d1b;
       border-radius: 6px; }
     .main .article--about .article__container--links .article__arrow {
       text-align: center; }
     .main .article--about .article__container--links .article__arrow::after {
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       position: absolute;
@@ -168,26 +172,69 @@ body {
               animation: 2s arrowAnimationLeft infinite ease-in-out; }
 
 @-webkit-keyframes arrowAnimationRight {
-  0%, 100% {
+  0%,
+  100% {
     right: 8%; }
   50% {
     right: 18%; } }
 
 @keyframes arrowAnimationRight {
-  0%, 100% {
+  0%,
+  100% {
     right: 8%; }
   50% {
     right: 18%; } }
 
 @-webkit-keyframes arrowAnimationLeft {
-  0%, 100% {
+  0%,
+  100% {
     left: 8%; }
   50% {
     left: 18%; } }
 
 @keyframes arrowAnimationLeft {
-  0%, 100% {
+  0%,
+  100% {
     left: 8%; }
   50% {
     left: 18%; } }
+
+.main .article__container--technology {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5vh;
+  margin-top: 30px; }
+  .main .article__container--technology .article__technology {
+    width: 100%;
+    height: 60vh;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: relative; }
+    .main .article__container--technology .article__technology .article__card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      border-radius: 10px;
+      box-shadow: 17px 11px 10px -1px rgba(0, 0, 0, 0.75); }
+    .main .article__container--technology .article__technology .article__card--front {
+      background-color: #c5b3b3; }
+    .main .article__container--technology .article__technology .article__card--back {
+      background-color: #997979;
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg); }
+
+.main .article__technology--fliping {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
 
