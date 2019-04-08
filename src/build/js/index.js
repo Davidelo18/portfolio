@@ -7,6 +7,8 @@ import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 
 // --- menu ---
 
+const navigation = document.getElementById('menu');
+const navTop = navigation.offsetTop; 
 const dropdownBtn = document.getElementById('dropdownBtn');
 const menu = document.getElementById('siteMenu');
 
@@ -15,13 +17,20 @@ dropdownBtn.addEventListener('click', () => {
     menu.classList.toggle('menu__list--active');
 });
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+        navigation.classList.add('fixed');
+    } else {
+        navigation.classList.remove('fixed');
+    }
+});
+
 // --- banner ---
 
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const banner = document.getElementById('siteBanner');
 const words = "Witaj w moim portfolio!";
-const name = 'Nazywam się Dawid Kiełbik i jestem początkującym Front-End Developerem. Aktualnie szukam stażu, który pomógłby mi się dalej rozwijać w świecie Front-End`u.'
 
 async function typeWritter() {
     for (let ch of words) {
