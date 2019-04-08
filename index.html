@@ -11,25 +11,25 @@
 <link href="main.css" rel="stylesheet"></head>
 
 <body>
-    <header class="header--site">
+    <header class="header--site" id="header">
         <nav class="menu" id="menu">
             <div class="menu__container">
                 <section class="menu__dropdown" id="dropdownBtn">
                     <button class="menu__burger"></button>
                 </section>
                 <ul class="menu__list" id="siteMenu">
-                    <li class="menu__option"><a href="" class="menu__link">Strona główna</a></li>
-                    <li class="menu__option"><a href="" class="menu__link">O mnie</a></li>
-                    <li class="menu__option"><a href="" class="menu__link">Technologie</a></li>
-                    <li class="menu__option"><a href="" class="menu__link">Projekty</a></li>
+                    <li class="menu__option"><a href="#header" class="menu__link">Strona główna</a></li>
+                    <li class="menu__option"><a href="#about" class="menu__link">O mnie</a></li>
+                    <li class="menu__option"><a href="#technologies" class="menu__link">Technologie</a></li>
+                    <li class="menu__option"><a href="#projects" class="menu__link">Projekty</a></li>
                 </ul>
             </div>
         </nav>
         <section class="banner" id="siteBanner"></section>
     </header>
     <main class="main">
-        <article class="article article--about">
-            <header class="article__header--about">
+        <article class="article article--about" id="about">
+            <header class="article__header">
                 <h2 class="article__title">O mnie</h2>
             </header>
             <p class="article__text">Nazywam się Dawid Kiełbik i jestem początkującym Front-End Developerem. Aktualnie
@@ -47,7 +47,7 @@
                     target="_blank">Skontaktuj się ze mną</a>
             </section>
         </article>
-        <article class="article article--technology">
+        <article class="article article--technology" id="technologies">
             <header class="article__header">
                 <h2 class="article__title">Technologie, w których pracuję</h2>
             </header>
@@ -105,7 +105,7 @@
                 </div>
             </section>
         </article>
-        <article class="article article--projects">
+        <article class="article article--projects" id="projects">
             <header class="article__header">
                 <h2 class="article__title">Kilka moich projektów</h2>
             </header>
