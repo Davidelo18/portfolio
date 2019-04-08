@@ -1,6 +1,8 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
     entry: ['babel-polyfill', './src/build/js/index.js'],
@@ -31,11 +33,22 @@ module.exports = {
                 ]
             },
             {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    miniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader"
+                ]
+            },
+            {
                 test: /\.scss$/,
-                use:  [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                exclude: /node_modules/,
+                use: [
+                    miniCssExtractPlugin.loader,
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"
                 ]
             }
         ]
@@ -48,6 +61,13 @@ module.exports = {
         new miniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                postcss: [
+                    autoprefixer()
+                ]
+            }
         })
     ]
 };
