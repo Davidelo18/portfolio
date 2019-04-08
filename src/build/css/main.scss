@@ -17,7 +17,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 100;
   }
 
   .menu {
@@ -67,6 +67,7 @@ body {
         position: relative;
         width: 100%;
         height: $st_height;
+        z-index: 99;
 
         .menu__burger {
           position: absolute;
