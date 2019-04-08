@@ -245,6 +245,7 @@ body {
       transition: transform 1s;
       transform-style: preserve-3d;
       position: relative;
+      z-index: 2;
 
       .article__card {
         display: flex;
@@ -259,17 +260,24 @@ body {
         backface-visibility: hidden;
         border-radius: 10px;
         box-shadow: 17px 11px 10px -1px rgba(0,0,0,0.75);
-        z-index: 2;
       }
 
       .article__card--front {
         background-color: $card_cl;
+        transition: all .4s ease-in-out;
+      }
+
+      .article__card--front:hover {
+          cursor: pointer;
+          background-color: darken($card_cl, 10%);
       }
 
       .article__card--back {
         background-color: darken($card_cl, 20%);
         transform: rotateY(180deg);
       }
+
+      .article__card--back:hover { cursor: pointer; }
     }
   }
 

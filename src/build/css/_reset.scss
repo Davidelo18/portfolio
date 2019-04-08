@@ -11,6 +11,11 @@
     ul, ol { list-style-type: none }
     button { border: none }
 
-    .fab { font-size: 35vh }
+    .fab { 
+        font-size: 35vh;
+        @media (min-width: 720px) {
+            font-size: 30vh;
+        }
+    }
     figcaption { font-size: 1.3rem }
 }
