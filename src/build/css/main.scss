@@ -1,204 +1,275 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import 'reset.scss';
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import "reset.scss";
 
 $main_color: #fcf6f6;
 $menu: rgb(120, 42, 40);
 $grey_cl: rgb(53, 53, 53);
+$card_cl: #c5b3b3;
 $st_height: 10vh;
 
 body {
-    background-color: $main_color;
-    font-family: 'Open Sans', sans-serif;
+  background-color: $main_color;
+  font-family: "Open Sans", sans-serif;
 }
 
-.header--site{
+.header--site {
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 
-    .fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 2;
-    }
+  .menu {
+    width: 100%;
+    height: $st_height;
+    background-color: $menu;
 
-    .menu {
+    .menu__container {
+      position: relative;
+
+      .menu__list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 10vh;
+        width: 100%;
+        background-color: darken($menu, 10%);
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.5s ease-in-out;
+        z-index: 1;
+
+        .menu__option {
+          height: 10vh;
+          color: white;
+
+          .menu__link {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .menu__option:hover {
+          background-color: darken($menu, 5%);
+        }
+      }
+
+      .menu__list--active {
+        transform: scale(1, 1);
+      }
+
+      .menu__dropdown {
+        display: block;
+        position: relative;
         width: 100%;
         height: $st_height;
-        background-color: $menu;
 
-        .menu__container {
-            position: relative;
-        
-            .menu__list {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 10vh;
-                width: 100%;
-                background-color: darken($menu, 10%);
-                transform: scale(1, 0);
-                transform-origin: top;
-                transition: transform .5s ease-in-out;
-                z-index: 1;
-        
-                .menu__option {
-                    height: 10vh;
-                    color: white;
-    
-                    .menu__link {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-    
-                .menu__option:hover { background-color: darken($menu, 5%) }
-            }
-    
-            .menu__list--active {
-                transform: scale(1, 1);
-            }
-    
-            .menu__dropdown {
-                display: block;
-                position: relative;
-                width: 100%;
-                height: $st_height;
-    
-                .menu__burger {
-                    position: absolute;
-                    top: 5vh;
-                    right: 5vh;
-                    display: block;
-                    background-color: #fff;
-                    width: 60px;
-                    height: 2px;
-                    transition: all .5s ease-in-out;
-                }
-    
-                .menu__burger::before,
-                .menu__burger::after {
-                    content: '';
-                    position: absolute;
-                    width: 60px;
-                    right: 0;
-                    height: 2px;
-                    background: #fff;
-                    transition: all .5s ease-in-out;
-                }
-    
-                .menu__burger::before { top: -2vh }
-                .menu__burger::after { top: 2vh }
-            }
-    
-            .menu__dropdown.open .menu__burger{ background-color: rgba(0,0,0,0) }
-            .menu__dropdown.open .menu__burger::before { 
-                top: 0;
-                transform: rotate(45deg);
-            }
-            .menu__dropdown.open .menu__burger::after { 
-                top: 0;
-                transform: rotate(-45deg);
-            }
-    
-            .menu__dropdown:hover { cursor: pointer }
+        .menu__burger {
+          position: absolute;
+          top: 5vh;
+          right: 5vh;
+          display: block;
+          background-color: #fff;
+          width: 60px;
+          height: 2px;
+          transition: all 0.5s ease-in-out;
         }
-    }    
 
-    .banner {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        padding-top: 20vh; 
-        clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
-        /*
+        .menu__burger::before,
+        .menu__burger::after {
+          content: "";
+          position: absolute;
+          width: 60px;
+          right: 0;
+          height: 2px;
+          background: #fff;
+          transition: all 0.5s ease-in-out;
+        }
+
+        .menu__burger::before {
+          top: -2vh;
+        }
+        .menu__burger::after {
+          top: 2vh;
+        }
+      }
+
+      .menu__dropdown.open .menu__burger {
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .menu__dropdown.open .menu__burger::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .menu__dropdown.open .menu__burger::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu__dropdown:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20vh;
+    clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
+    /*
             This pattern is downloaded from www.subtlepatterns.com 
             If you need more, that's where to get'em.
         */
-        background-image: url(../img/banner.png); 
-        height: 90vh;
-        color: #fff;
-        font-size: 2rem;
-    }
+    background-image: url(../img/banner.png);
+    height: 90vh;
+    color: #fff;
+    font-size: 2rem;
+  }
 }
 
 .main {
-    .article {
-        width: 90%;
-        margin: 0 auto 15vh auto;
-        font-size: 1.2rem;
+  .article {
+    width: 90%;
+    margin: 0 auto 15vh auto;
+    font-size: 1.2rem;
+  }
+
+  .article__header {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
+  }
+
+  // about
+
+  .article--about {
+    position: relative;
+
+    .article__header--about {
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
+      position: absolute;
+      top: -15vh;
     }
 
-    .article__header {
-        font-size: 2rem;
-        letter-spacing: 1px;
-        text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
-    }
+    .article__container--links {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      margin: 30px 0 10px 0;
 
-    .article--about{
+      .article__link {
         position: relative;
+        width: 80%;
+        margin-bottom: 5vh;
+        padding: 10px;
+        background-color: $grey_cl;
+        color: #fff;
+      }
 
-        .article__header--about {
-            font-size: 2rem;
-            letter-spacing: 1px;
-            text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
-            position: absolute;
-            top: -15vh;
+      .article__link--email {
+        margin: 0;
+        background-color: darken($menu, 10%);
+        border-radius: 6px;
+      }
+
+      .article__arrow {
+        text-align: center;
+      }
+
+      .article__arrow::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: calc(50% - 5px);
+        right: 0;
+        border-right: 4px solid #fff;
+        border-bottom: 4px solid #fff;
+        transform: rotate(-45deg);
+      }
+
+      .article__arrow--right::after {
+        animation: 2s arrowAnimationRight infinite ease-in-out;
+      }
+      .article__arrow--left::after {
+        animation: 2s arrowAnimationLeft infinite ease-in-out;
+      }
+
+      @keyframes arrowAnimationRight {
+        0%,
+        100% {
+          right: 8%;
         }
 
-        .article__container--links {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-            margin: 30px 0 10px 0;
+        50% {
+          right: 18%;
+        }
+      }
 
-            .article__link {
-                position: relative;
-                width: 80%;
-                margin-bottom: 5vh;
-                padding: 10px;
-                background-color: $grey_cl;
-                color: #fff;
-            }
-
-            .article__link--email {
-                margin: 0;
-                background-color: $menu;
-                border-radius: 6px;
-            }
-
-            .article__arrow { text-align: center }
-
-            .article__arrow::after {
-                content: '';
-                width: 10px;
-                height: 10px;
-                position: absolute;
-                top: calc(50% - 5px);
-                right: 0;
-                border-right: 4px solid #fff;
-                border-bottom: 4px solid #fff;
-                transform: rotate(-45deg);
-            }
-
-            .article__arrow--right::after { animation: 2s arrowAnimationRight infinite ease-in-out }
-            .article__arrow--left::after { animation: 2s arrowAnimationLeft infinite ease-in-out }
-
-            @keyframes arrowAnimationRight {
-                0%, 100% { right: 8% }
-
-                50% { right: 18% }
-            }
-
-            @keyframes arrowAnimationLeft {
-                0%, 100% { left: 8% }
-
-                50% { left: 18% }
-            }
+      @keyframes arrowAnimationLeft {
+        0%,
+        100% {
+          left: 8%;
         }
 
-
+        50% {
+          left: 18%;
+        }
+      }
     }
+  }
+
+  // technology
+
+  .article__container--technology {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5vh;
+    margin-top: 30px;
+
+    .article__technology {
+      width: 100%;
+      height: 60vh;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      position: relative;
+
+      .article__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        padding: 15px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        box-shadow: 17px 11px 10px -1px rgba(0,0,0,0.75);
+      }
+
+      .article__card--front {
+        background-color: $card_cl;
+      }
+
+      .article__card--back {
+        background-color: darken($card_cl, 20%);
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  .article__technology--fliping {
+    transform: rotateY(180deg);
+  }
 }

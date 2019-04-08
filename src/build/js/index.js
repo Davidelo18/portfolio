@@ -40,3 +40,11 @@ async function typeWritter() {
 }
 
 typeWritter();
+
+// technology flip card
+
+const cards = document.querySelectorAll('.article__technology');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => { card.classList.toggle('article__technology--fliping') });
+});
