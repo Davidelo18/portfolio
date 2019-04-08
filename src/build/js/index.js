@@ -11,19 +11,24 @@ const navigation = document.getElementById('menu');
 const navTop = navigation.offsetTop; 
 const dropdownBtn = document.getElementById('dropdownBtn');
 const menu = document.getElementById('siteMenu');
+const menuLinks = document.querySelectorAll('.menu__link');
 
 dropdownBtn.addEventListener('click', () => {
     dropdownBtn.classList.toggle('open');
     menu.classList.toggle('menu__list--active');
 });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > navTop) {
-        navigation.classList.add('fixed');
-    } else {
-        navigation.classList.remove('fixed');
-    }
-});
+menuLinks.forEach(link => link.addEventListener('click', smoothScroll));
+
+function smoothScroll(e) {
+    e.preventDefault();
+    const target = e.currentTarget.getAttribute('href');
+
+    window.scrollTo({
+        top: target==="#" ? 0 : document.querySelector(target).offsetTop - navigation.offsetHeight,
+        behavior: "smooth"
+    });
+}
 
 // --- banner ---
 

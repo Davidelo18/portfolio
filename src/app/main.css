@@ -24,16 +24,17 @@ body {
   background-color: #fcf6f6;
   font-family: "Open Sans", sans-serif; }
 
-.header--site .fixed {
+.header--site .menu {
+  width: 100%;
+  height: 10vh;
+  background-color: #782a28;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100; }
-
-.header--site .menu {
-  width: 100%;
-  height: 10vh;
-  background-color: #782a28; }
+  @media (min-width: 1200px) {
+    .header--site .menu {
+      height: 8vh; } }
   .header--site .menu .menu__container {
     position: relative; }
     .header--site .menu .menu__container .menu__list {
@@ -63,13 +64,16 @@ body {
         @media (min-width: 1200px) {
           .header--site .menu .menu__container .menu__list .menu__option {
             margin-left: 15px;
-            padding: 0 20px; } }
+            height: 8vh; } }
         .header--site .menu .menu__container .menu__list .menu__option .menu__link {
           width: 100%;
           height: 100%;
           display: flex;
           align-items: center;
           justify-content: center; }
+          @media (min-width: 1200px) {
+            .header--site .menu .menu__container .menu__list .menu__option .menu__link {
+              padding: 0 20px; } }
       .header--site .menu .menu__container .menu__list .menu__option:hover {
         background-color: #652322; }
     .header--site .menu .menu__container .menu__list--active {
@@ -124,8 +128,8 @@ body {
   justify-content: center;
   text-align: center;
   padding-top: 20vh;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
-          clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
+  -webkit-clip-path: polygon(100% 0, 100% 79%, 89% 91%, 69% 97%, 29% 89%, 0% 60%, 0 0);
+          clip-path: polygon(100% 0, 100% 79%, 89% 91%, 69% 97%, 29% 89%, 0% 60%, 0 0);
   /*
             This pattern is downloaded from www.subtlepatterns.com 
             If you need more, that's where to get'em.
@@ -148,15 +152,6 @@ body {
     .main .article__header {
       font-size: 2rem; } }
 
-.main .article--about {
-  position: relative; }
-  .main .article--about .article__header--about {
-    font-size: 2rem;
-    letter-spacing: 1px;
-    text-shadow: 3px -5px 1px #782a28;
-    position: absolute;
-    top: -15vh; }
-
 .main .article__container--links {
   display: flex;
   flex-direction: column;
@@ -175,7 +170,7 @@ body {
     padding: 10px;
     background-color: #353535;
     color: #fff;
-    transition: all .4s ease-in-out; }
+    transition: all 0.4s ease-in-out; }
     @media (min-width: 1200px) {
       .main .article__container--links .article__link {
         margin: 0;
@@ -188,7 +183,7 @@ body {
     margin: 0;
     background-color: #521d1b;
     border-radius: 6px;
-    transition: all .4s ease-in-out; }
+    transition: all 0.4s ease-in-out; }
     @media (min-width: 1200px) {
       .main .article__container--links .article__link--email {
         background-color: #2c0f0f; } }
@@ -339,9 +334,13 @@ body {
         background-color: #353535;
         color: #fff;
         border-radius: 6px;
-        font-size: .8rem;
+        font-size: 0.8rem;
         overflow: hidden;
-        text-align: center; }
+        text-align: center;
+        transition: all .35s ease-in-out; }
+      .main .article__container--projects .article__project .article__container--links-wbst .article__link--wbst:hover {
+        cursor: pointer;
+        background-color: #282828; }
   @media (min-width: 1360px) {
     .main .article__container--projects .article__project:first-child {
       margin: 0; } }

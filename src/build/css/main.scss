@@ -13,17 +13,18 @@ body {
 }
 
 .header--site {
-  .fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
-
   .menu {
     width: 100%;
     height: $st_height;
     background-color: $menu;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    @media (min-width: 1200px) {
+      height: $st_height - 2vh;
+    }
 
     .menu__container {
       position: relative;
@@ -52,7 +53,7 @@ body {
 
           @media (min-width: 1200px) {
             margin-left: 15px;
-            padding: 0 20px;
+            height: 8vh;
           }
 
           .menu__link {
@@ -61,6 +62,10 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @media (min-width: 1200px) {
+              padding: 0 20px;
+            }
           }
         }
 
@@ -137,7 +142,7 @@ body {
     justify-content: center;
     text-align: center;
     padding-top: 20vh;
-    clip-path: polygon(0 0, 100% 0, 100% 82%, 0 63%);
+    clip-path: polygon(100% 0, 100% 79%, 89% 91%, 69% 97%, 29% 89%, 0% 60%, 0 0);
     /*
             This pattern is downloaded from www.subtlepatterns.com 
             If you need more, that's where to get'em.
@@ -167,18 +172,6 @@ body {
 
   // about
 
-  .article--about {
-    position: relative;
-
-    .article__header--about {
-      font-size: 2rem;
-      letter-spacing: 1px;
-      text-shadow: 3px -5px 1px rgba(120, 42, 40, 1);
-      position: absolute;
-      top: -15vh;
-    }
-  }
-
   .article__container--links {
     display: flex;
     flex-direction: column;
@@ -199,7 +192,7 @@ body {
       padding: 10px;
       background-color: $grey_cl;
       color: #fff;
-      transition: all .4s ease-in-out;
+      transition: all 0.4s ease-in-out;
 
       @media (min-width: 1200px) {
         margin: 0;
@@ -218,7 +211,7 @@ body {
       margin: 0;
       background-color: darken($menu, 10%);
       border-radius: 6px;
-      transition: all .4s ease-in-out;
+      transition: all 0.4s ease-in-out;
 
       @media (min-width: 1200px) {
         background-color: darken($menu, 20%);
@@ -393,9 +386,15 @@ body {
           background-color: $grey_cl;
           color: #fff;
           border-radius: 6px;
-          font-size: .8rem;
+          font-size: 0.8rem;
           overflow: hidden;
           text-align: center;
+          transition: all .35s ease-in-out;
+        }
+
+        .article__link--wbst:hover {
+          cursor: pointer;
+          background-color: darken($grey_cl, 5%);
         }
       }
     }
