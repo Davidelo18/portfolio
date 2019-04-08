@@ -23,7 +23,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2; }
+  z-index: 100; }
 
 .header--site .menu {
   width: 100%;
@@ -64,7 +64,8 @@ body {
       display: block;
       position: relative;
       width: 100%;
-      height: 10vh; }
+      height: 10vh;
+      z-index: 99; }
       .header--site .menu .menu__container .menu__dropdown .menu__burger {
         position: absolute;
         top: 5vh;
