@@ -13,9 +13,6 @@ body {
 }
 
 .header--site {
-  overflow: hidden;
-  z-index: 100;
-
   .menu {
     width: 100%;
     height: $st_height;
@@ -24,6 +21,7 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
+    transform: translateZ(200px);
 
     @media (min-width: 1200px) {
       height: $st_height - 2vh;
