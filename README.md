@@ -4,7 +4,7 @@
 
 Zwyczajne portfolio, w którym umieściłem pokrótce opisane moje umiejętności oraz zrealizowane projekty. Wygląd strony jest całkowicie wymyślony przeze mnie, aczkolwiek bardzo typowy (sticku menu, baner, 3 kolumny itp)
 
-Pliki napisane przeze mnie to: **index.html**, **style.css**
+Pliki napisane przeze mnie to: **wszytskie pliki umieszczone w podfolderze /build**
 
 ## Użyte technologie
 
